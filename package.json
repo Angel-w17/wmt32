@@ -1,0 +1,23 @@
+{
+  "name": "lab3-vue-router",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "实验四 状态管理：Pinia Store + storeToRefs + localStorage 持久化 + 路由守卫访问控制",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.2",
+    "element-plus": "^2.14.7",
+    "pinia": "^2.3.1",
+    "vue": "^3.5.13",
+    "vue-router": "^4.6.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "vite": "^6.0.7"
+  }
+}
