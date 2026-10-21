@@ -87,7 +87,7 @@ function goEdit() {
                 :href="link.url"
                 target="_blank"
                 type="primary"
-                :underline="false"
+                underline="never"
                 class="profile-link"
               >
                 {{ link.name }}

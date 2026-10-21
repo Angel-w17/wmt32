@@ -34,7 +34,8 @@ const filteredArticles = computed(() => {
       !kw ||
       a.title.toLowerCase().includes(kw) ||
       a.summary.toLowerCase().includes(kw) ||
-      a.tags.join(' ').toLowerCase().includes(kw)
+      // 兼容旧数据：tags 可能为字符串（非数组）
+      (Array.isArray(a.tags) ? a.tags.join(' ') : String(a.tags ?? '')).toLowerCase().includes(kw)
     return matchCategory && matchKeyword
   })
 })

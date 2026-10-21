@@ -69,11 +69,11 @@ const routes = [
   {
     path: '/admin',
     name: 'admin',
+    // redirect 直接放在父路由上（避免空路径子路由触发 Vue Router 命名警告）
+    redirect: '/admin/profile',
     component: () => import('../views/admin/AdminLayout.vue'),
     meta: { title: '后台管理', requiresAuth: true },
     children: [
-      // 默认重定向到个人信息编辑页
-      { path: '', redirect: '/admin/profile' },
       {
         path: 'profile',
         name: 'admin-profile',

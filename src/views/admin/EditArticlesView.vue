@@ -81,7 +81,16 @@ const editDraft = reactive({
 
 function startEdit(article) {
   editingId.value = article.id
-  Object.assign(editDraft, { ...article, tags: article.tags.join(', ') })
+  // 兼容旧数据：localStorage 中 tags 可能为字符串（非数组），统一转为逗号分隔文本
+  const tagsText = Array.isArray(article.tags) ? article.tags.join(', ') : String(article.tags ?? '')
+  Object.assign(editDraft, {
+    title: article.title ?? '',
+    category: article.category ?? '前端基础',
+    summary: article.summary ?? '',
+    content: article.content ?? '',
+    tags: tagsText,
+    date: article.date ?? new Date().toISOString().slice(0, 10)
+  })
   editDialogVisible.value = true
 }
 

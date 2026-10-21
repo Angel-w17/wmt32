@@ -36,7 +36,8 @@ const filteredProjects = computed(() => {
       !kw ||
       p.name.toLowerCase().includes(kw) ||
       p.intro.toLowerCase().includes(kw) ||
-      p.tech.join(' ').toLowerCase().includes(kw)
+      // 兼容旧数据：tech 可能为字符串（非数组）
+      (Array.isArray(p.tech) ? p.tech.join(' ') : String(p.tech ?? '')).toLowerCase().includes(kw)
     return matchStatus && matchKeyword
   })
 })

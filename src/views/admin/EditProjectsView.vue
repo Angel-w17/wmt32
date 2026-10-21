@@ -67,7 +67,9 @@ const editDraft = reactive({
 
 function startEdit(project) {
   editingId.value = project.id
-  Object.assign(editDraft, { ...project, tech: project.tech.join(', ') })
+  // 兼容旧数据：localStorage 中 tech 可能为字符串（非数组），统一转为逗号分隔文本
+  const techText = Array.isArray(project.tech) ? project.tech.join(', ') : String(project.tech ?? '')
+  Object.assign(editDraft, { ...project, tech: techText })
   editDialogVisible.value = true
 }
 
