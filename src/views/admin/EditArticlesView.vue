@@ -132,16 +132,15 @@ function handleDelete(article) {
     <el-card shadow="never">
       <el-table :data="articles" row-key="id" style="width: 100%">
         <el-table-column prop="id" label="#" width="56" />
-        <el-table-column prop="title" label="标题" min-width="180" show-overflow-tooltip />
-        <el-table-column prop="category" label="分类" width="110">
+        <el-table-column prop="title" label="标题" min-width="150" show-overflow-tooltip />
+        <el-table-column prop="category" label="分类" width="100">
           <template #default="{ row }">
             <el-tag size="small">{{ row.category }}</el-tag>
           </template>
         </el-table-column>
-        <el-table-column prop="summary" label="摘要" min-width="200" show-overflow-tooltip />
         <el-table-column prop="date" label="日期" width="115" sortable />
-        <el-table-column prop="views" label="阅读" width="80" sortable />
-        <el-table-column label="操作" width="150" fixed="right">
+        <el-table-column prop="views" label="阅读" width="78" sortable />
+        <el-table-column label="操作" width="130" fixed="right">
           <template #default="{ row }">
             <el-button type="primary" size="small" plain @click="startEdit(row)">
               <el-icon><EditPen /></el-icon>

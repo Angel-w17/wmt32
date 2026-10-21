@@ -97,7 +97,10 @@ function logout() {
 }
 .admin-content {
   flex: 1;
+  /* min-width: 0 让 flex 子项可收缩，否则内部表格的固有宽度会撑破卡片导致右侧列被裁掉 */
+  min-width: 0;
   padding: 24px 28px;
+  overflow-x: auto;
 }
 
 @media (max-width: 600px) {

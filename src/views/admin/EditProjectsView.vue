@@ -112,14 +112,13 @@ function handleDelete(project) {
     <el-card shadow="never">
       <el-table :data="projects" row-key="id" style="width: 100%">
         <el-table-column prop="id" label="#" width="56" />
-        <el-table-column prop="name" label="项目名称" min-width="160" show-overflow-tooltip />
-        <el-table-column prop="status" label="状态" width="100">
+        <el-table-column prop="name" label="项目名称" min-width="140" show-overflow-tooltip />
+        <el-table-column prop="status" label="状态" width="95">
           <template #default="{ row }">
             <el-tag :type="statusType(row.status)" size="small">{{ row.status }}</el-tag>
           </template>
         </el-table-column>
-        <el-table-column prop="intro" label="简介" min-width="220" show-overflow-tooltip />
-        <el-table-column label="技术栈" min-width="160">
+        <el-table-column label="技术栈" min-width="130">
           <template #default="{ row }">
             <el-tag
               v-for="tech in row.tech"
@@ -133,13 +132,13 @@ function handleDelete(project) {
             </el-tag>
           </template>
         </el-table-column>
-        <el-table-column label="进度" width="150">
+        <el-table-column label="进度" width="130">
           <template #default="{ row }">
             <!-- el-progress：进度条组件（:percentage 0-100） -->
             <el-progress :percentage="row.progress" :stroke-width="10" />
           </template>
         </el-table-column>
-        <el-table-column label="操作" width="150" fixed="right">
+        <el-table-column label="操作" width="130" fixed="right">
           <template #default="{ row }">
             <el-button type="primary" size="small" plain @click="startEdit(row)">
               <el-icon><EditPen /></el-icon>
